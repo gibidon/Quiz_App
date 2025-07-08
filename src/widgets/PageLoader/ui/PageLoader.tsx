@@ -10,12 +10,12 @@
 //   );
 // };
 
-import { Loader } from '@/shared/ui/Loader/Loader';
+import { Loader } from '@/shared/ui/Loader/Loader'
 
 export const PageLoader = () => {
   return (
     <div>
       <Loader />
     </div>
-  );
-};
+  )
+}

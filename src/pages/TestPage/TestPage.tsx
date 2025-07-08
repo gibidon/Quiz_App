@@ -1,5 +1,5 @@
-import cls from './TestPage.module.scss';
+import cls from './TestPage.module.scss'
 
 export function TestPage() {
-  return <div className={cls.green}>Some text</div>;
+  return <div className={cls.green}>Some text</div>
 }

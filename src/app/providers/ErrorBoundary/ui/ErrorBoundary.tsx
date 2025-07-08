@@ -1,35 +1,32 @@
-import React, { ErrorInfo, ReactNode, Suspense } from 'react';
+import React, { ErrorInfo, ReactNode, Suspense } from 'react'
 // import { ErrorPage } from '@/widgets/ErrorPage';
 
 interface ErrorBoundaryProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 interface ErrorBoundaryState {
-  hasError: boolean;
+  hasError: boolean
 }
 
-class ErrorBoundary extends React.Component<
-  ErrorBoundaryProps,
-  ErrorBoundaryState
-> {
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
-    super(props);
-    this.state = { hasError: false };
+    super(props)
+    this.state = { hasError: false }
   }
 
   static getDerivedStateFromError() {
-    return { hasError: true };
+    return { hasError: true }
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // eslint-disable-next-line no-console
-    console.warn(error, errorInfo);
+    console.warn(error, errorInfo)
   }
 
   render() {
-    const { hasError } = this.state;
-    const { children } = this.props;
+    const { hasError } = this.state
+    const { children } = this.props
 
     if (hasError) {
       return (
@@ -37,11 +34,11 @@ class ErrorBoundary extends React.Component<
           <div>Произошла непредвиденная ошибка..</div>
           {/* <ErrorPage /> */}
         </Suspense>
-      );
+      )
     }
 
-    return children;
+    return children
   }
 }
 
-export default ErrorBoundary;
+export default ErrorBoundary

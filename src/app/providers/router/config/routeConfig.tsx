@@ -1,8 +1,8 @@
-import { MainPage } from '@/pages/MainPage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
-import { TestPage } from '@/pages/TestPage/TestPage';
-import { AppRoutes } from '@/shared/const/router';
-import { AppRoutesProps } from '@/shared/types/router';
+import { MainPage } from '@/pages/MainPage'
+import { NotFoundPage } from '@/pages/NotFoundPage'
+import { TestPage } from '@/pages/TestPage/TestPage'
+import { AppRoutes } from '@/shared/const/router'
+import { AppRoutesProps } from '@/shared/types/router'
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
@@ -17,4 +17,4 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     path: '/test',
     element: <TestPage />,
   },
-};
+}

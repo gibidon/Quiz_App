@@ -1,11 +1,11 @@
-import { AppRouter } from './providers/router/ui/AppRouter';
-import { useTheme } from './providers/ThemeProvider/lib/useTheme';
-import logo from '../shared/assets/images/logo.png';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import './styles/index.scss';
+import { AppRouter } from './providers/router/ui/AppRouter'
+import { useTheme } from './providers/ThemeProvider/lib/useTheme'
+import logo from '../shared/assets/images/logo.png'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import './styles/index.scss'
 
 const App = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <div className={classNames('app', {}, [theme])}>
@@ -20,7 +20,7 @@ const App = () => {
       <AppRouter />
       {/* footer */}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
