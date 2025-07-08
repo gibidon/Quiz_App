@@ -1,5 +1,6 @@
-import React, { ErrorInfo, ReactNode, Suspense } from 'react'
-// import { ErrorPage } from '@/widgets/ErrorPage';
+import React, { Suspense } from 'react'
+import type { ErrorInfo, ReactNode } from 'react'
+import { ErrorPage } from '@/widgets/ErrorPage'
 
 interface ErrorBoundaryProps {
   children: ReactNode
@@ -31,8 +32,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     if (hasError) {
       return (
         <Suspense fallback="Loading...">
-          <div>Произошла непредвиденная ошибка..</div>
-          {/* <ErrorPage /> */}
+          {/* <div>Произошла непредвиденная ошибка..</div> */}
+          <ErrorPage />
         </Suspense>
       )
     }

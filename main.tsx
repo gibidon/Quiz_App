@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from './src/app/providers/ThemeProvider/ui/ThemeProvider.tsx'
 import { ErrorBoundary } from './src/app/providers/ErrorBoundary/index.tsx'
-import App from './src/App.tsx'
+import App from './src/app/App.tsx'
 
 const container = document.getElementById('root')
 

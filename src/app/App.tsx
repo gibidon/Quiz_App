@@ -1,6 +1,5 @@
 import { AppRouter } from './providers/router/ui/AppRouter'
 import { useTheme } from './providers/ThemeProvider/lib/useTheme'
-import logo from '../shared/assets/images/logo.png'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import './styles/index.scss'
 
@@ -9,16 +8,15 @@ const App = () => {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      {/* header */}
-      <h1>Hello from QuizSimulator</h1>
-      <div>
-        <img src={logo} alt="logo" />
-      </div>
-      <div>
-        <button onClick={toggleTheme}>Toggle theme!</button>
-      </div>
+      <header>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>
+          <button onClick={toggleTheme}>Toggle theme!</button>
+        </div>
+      </header>
+
       <AppRouter />
-      {/* footer */}
+      <footer>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, voluptate.</footer>
     </div>
   )
 }
