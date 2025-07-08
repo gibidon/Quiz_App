@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Roboto-Regular;
+  src: url('../../shared/assets/fonts/Roboto-Regular.ttf') format('ttf');
+}
+
+body {
+  font-family: Roboto-Regular, sans-serif;
+}
+
+.app {
+  font: var(--font-m);
+  background: var(--bg-color);
+  color: var(--primary-color);
+  min-height: 100vh;
+}
