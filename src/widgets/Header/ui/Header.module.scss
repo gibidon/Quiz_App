@@ -1,0 +1,9 @@
+.Header {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    z-index: var(--z-index-header);
+    height: var(--navbar-height);
+    display: flex;
+    justify-content: space-between;
+}

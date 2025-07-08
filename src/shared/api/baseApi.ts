@@ -1,4 +1,5 @@
-import { BaseQueryFn, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import type { BaseQueryFn } from '@reduxjs/toolkit/query'
 
 let accessToken = ''
 
