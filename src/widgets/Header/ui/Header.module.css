@@ -1,9 +1,9 @@
 .Header {
   position: sticky;
+  padding: 2rem;
   top: 0;
   background-color: inherit;
   z-index: var(--z-index-header);
   height: var(--navbar-height);
-  display: flex;
-  justify-content: space-between;
-}/*# sourceMappingURL=Header.module.css.map */
+  display: flex; 
+}

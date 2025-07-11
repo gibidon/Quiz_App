@@ -2,4 +2,9 @@
   font: var(--font-m);
   background: var(--bg-color);
   color: var(--primary-color);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
 }/*# sourceMappingURL=base.css.map */

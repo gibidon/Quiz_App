@@ -9,7 +9,7 @@ function setAccessToken(token: string) {
 }
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: '',
+  baseUrl: 'https://api.yeatwork.ru/',
   credentials: 'include',
   prepareHeaders: headers => {
     if (accessToken) {
@@ -26,7 +26,6 @@ const baseQueryWithRefresh: BaseQueryFn = async (args, api, extraOptions) => {
   if (result.error?.status === 401 && args.url !== '/auth/refresh') {
     const refreshResult = await baseQuery(
       {
-        //TODO
         url: '/auth/refresh',
         method: 'GET',
       },
@@ -39,12 +38,10 @@ const baseQueryWithRefresh: BaseQueryFn = async (args, api, extraOptions) => {
 
       if (accessToken) {
         setAccessToken(accessToken)
-        // localStorage.setItem('accessToken', accessToken);
       }
       result = await baseQuery(args, api, extraOptions)
     } else {
-      //   console.log('Refresh failed');
-      //   api.dispatch(apiAccessTokenIsBrokenEvent());
+      // console.log('Refresh failed')
     }
   }
 
@@ -52,7 +49,6 @@ const baseQueryWithRefresh: BaseQueryFn = async (args, api, extraOptions) => {
 }
 
 export const baseApi = createApi({
-  //   tagTypes: Object.values(ApiTags),
   reducerPath: 'api',
   baseQuery: baseQueryWithRefresh,
   endpoints: () => ({}),
