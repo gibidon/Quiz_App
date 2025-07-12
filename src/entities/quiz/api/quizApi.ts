@@ -7,7 +7,7 @@ export const quizApi = baseApi.injectEndpoints({
     getNewMockQuiz: build.query<GetNewMockQuizResponse, void>({
       query: () => ({
         url: quizApiUrls.getNewMockQuiz,
-        params: { complexity: [1, 2, 6], limit: 9, skills: ['58'] },
+        params: { complexity: [1, 2, 6], limit: 10 },
       }),
     }),
   }),

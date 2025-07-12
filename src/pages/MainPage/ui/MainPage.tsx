@@ -93,6 +93,18 @@ const MainPage = () => {
           </div>
         </Flex>
       </section>
+      <section className={cls.quizMode}>
+        <h2>Режим прохождения собеседований</h2>
+        <Flex>виджет подготовки / steps to learn</Flex>
+      </section>
+      <section>
+        <Flex>
+          <div className="track_progress">
+            <h2>Отслежвайте свой прогресс</h2>2 cards
+          </div>
+          Statcstics widget здесь
+        </Flex>
+      </section>
       <Footer />
     </>
   )

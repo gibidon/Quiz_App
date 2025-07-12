@@ -17,4 +17,8 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     path: '/quiz',
     element: <QuizPage />,
   },
+  [AppRoutes.QUESTION_LIST]: {
+    path: '/question_list',
+    element: <div>Question list page</div>,
+  },
 }
