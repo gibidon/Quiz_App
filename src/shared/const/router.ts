@@ -1,6 +1,7 @@
 export enum AppRoutes {
   MAIN = '/',
-  NOT_FOUND = 'not_found',
-  QUIZ = 'quiz',
-  QUESTION_LIST = 'question_list',
+  QUIZ_SETTINGS = '/quiz_settings',
+  QUIZ = '/interview/quiz',
+  QUESTION_LIST = '/interview/question_list',
+  NOT_FOUND = '*',
 }

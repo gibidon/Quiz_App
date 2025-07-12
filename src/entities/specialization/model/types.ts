@@ -1,3 +1,5 @@
+import { Response } from '@/shared/types/types'
+
 export interface Specialization {
   id: number
   title: string
@@ -7,9 +9,4 @@ export interface Specialization {
   updatedAt: string
 }
 
-export interface GetSpecializationsResponse {
-  page: number
-  limit: number
-  data: Specialization[]
-  total: number
-}
+export type GetSpecializationsResponse = Response<Specialization>

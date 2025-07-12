@@ -1,27 +1,18 @@
 import { baseApi } from '@/shared/api/baseApi'
-import type { GetNewMockQuizResponse, Quiz } from '../model/types'
+import type { GetMockQuizRequest, Quiz } from '../model/types'
 import { quizApiUrls } from '../model/const/quizApiUrls'
 
 export const quizApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    getNewMockQuiz: build.query<GetNewMockQuizResponse, void>({
-      query: () => ({
+    getNewMockQuiz: build.query<Quiz, GetMockQuizRequest>({
+      // providesTags: () => [{ type: 'quiz', id: 'NEW' }],
+      query: params => ({
         url: quizApiUrls.getNewMockQuiz,
-        params: { complexity: [1, 2, 6], limit: 10 },
+        // params: { limit: 10, skills: ['1', '3', '10001'] },
+        params,
       }),
     }),
   }),
 })
-
-// export const questionApi = baseApi.injectEndpoints({
-//   endpoints: build => ({
-//     getQuestions: build.query<GetQuestionListResponse, Array<Question>>({
-//       query: params => ({
-//         url: questionApiUrls.getQuestions,
-//         params: { page: 1, limit: 10, ...params },
-//       }),
-//     }),
-//   }),
-// })
 
 export const { useGetNewMockQuizQuery } = quizApi

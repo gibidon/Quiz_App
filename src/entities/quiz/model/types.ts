@@ -1,15 +1,22 @@
 import { Question } from '@/entities/question/@x/quiz.ts'
 
 export interface Quiz {
-  id: string
   startDate: string
   fullCount: number
-  skills: string[]
   response: QuizResponse
   questions: Question[]
 }
 
-export type GetNewMockQuizResponse = Omit<Quiz, 'skills'>
+export type QuizFilterState = {
+  quizFilters: Record<string, unknown>
+}
+
+export interface GetMockQuizRequest {
+  complexity?: Array<number>
+  skills?: Array<string>
+  limit?: number
+  // specialiazation?: Array<string>
+}
 
 interface QuizResponse {
   answers: QuizAnswer[]

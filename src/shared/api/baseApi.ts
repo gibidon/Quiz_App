@@ -52,4 +52,5 @@ export const baseApi = createApi({
   reducerPath: 'api',
   baseQuery: baseQueryWithRefresh,
   endpoints: () => ({}),
+  tagTypes: ['quiz', 'skills', 'specializations'], //TODO move to consts
 })

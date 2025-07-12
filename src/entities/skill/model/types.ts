@@ -1,5 +1,7 @@
 import { Specialization } from '@/entities/specialization/@x/skill.ts'
+import { Response } from '@/shared/types/types'
 
+//point where close integration with backend is important!
 export interface Skill {
   id: number
   title: string
@@ -10,9 +12,10 @@ export interface Skill {
   specializations: Specialization[]
 }
 
-export interface GetSkillsResponse {
-  page: number
-  limit: number
-  data: Skill[]
-  total: number
+export type GetSkillsResponse = Response<Array<Skill>>
+export interface GetSkillsRequest {
+  page?: number
+  limit?: number
+  specializations?: Array<number>
+  authorId?: Array<string>
 }
