@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { AppRoutes } from '@/shared/const/router'
-import { SkillSelector } from '@/features/quizSetup'
+import { SkillSelector } from '@/features/quiz/configureQuiz'
 import { Button } from '@/shared/ui/Button'
 import cls from './QuizSettings.module.scss'
 

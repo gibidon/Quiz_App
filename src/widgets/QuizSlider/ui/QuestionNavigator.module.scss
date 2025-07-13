@@ -1,0 +1,47 @@
+.navigator {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navButton {
+  position: relative;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background: #e0e0e0;
+  }
+}
+
+.left::before,
+.right::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: solid #333;
+  border-width: 2px 2px 0 0;
+  transform: translateY(-50%);
+}
+
+.left::before {
+  left: 0.75rem;
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.right::before {
+  right: 0.75rem;
+  transform: translateY(-50%) rotate(45deg);
+}

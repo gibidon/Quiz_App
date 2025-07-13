@@ -15,14 +15,32 @@ export interface GetMockQuizRequest {
   complexity?: Array<number>
   skills?: Array<string>
   limit?: number
-  // specialiazation?: Array<string>
 }
 
+export interface GetMockQuizResponse {
+  fullCount: number
+  questions: Array<Question>
+  response: {
+    answers: Array<QuizAnswer>
+  }
+  startDate: string
+}
+
+export interface QuizState {
+  // activeQuizQuestions: Array<Question>
+  results: Array<QuizResult>
+}
 interface QuizResponse {
   answers: QuizAnswer[]
 }
 
-interface QuizAnswer {
+export interface QuizAnswer {
   questionId: number
   questionTitle: string
+}
+
+export type QuestionAnswer = 'known' | 'unknown'
+export interface QuizResult {
+  question: Question
+  answer: QuestionAnswer
 }

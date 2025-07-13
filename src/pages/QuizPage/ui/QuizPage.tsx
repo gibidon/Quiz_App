@@ -1,16 +1,26 @@
 // import cls from './QuizPage.module.scss'
 import { useGetNewMockQuizQuery } from '@/entities/quiz/api/quizApi'
-import { selectQuizSettings } from '@/features/quizSetup/model/selectors/selectQuizSettings'
+import { selectQuizSettings } from '@/features/quiz/configureQuiz/model/selectors/selectQuizSettings'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
-import { mapQuizSettingsToRequest } from '@/features/quizSetup'
+import { mapQuizSettingsToRequest } from '@/features/quiz/configureQuiz'
+import { ProgressBar } from '@/shared/ui/ProgressBar/ProgressBar'
+import { QuizSlider } from '@/widgets/QuizSlider/ui/QuizSlider'
 
 export function QuizPage() {
   const rawSettings = useAppSelector(selectQuizSettings)
-  console.log('raw', rawSettings)
   const requestParams = mapQuizSettingsToRequest(rawSettings)
-  console.log('r par', requestParams)
-  const { data } = useGetNewMockQuizQuery(requestParams)
-  console.log('data', data)
+  const { data, isFetching, isLoading } = useGetNewMockQuizQuery(requestParams)
 
-  return <div>Data on quiz page: {JSON.stringify(data)}</div>
+  if (!data || isFetching || isLoading) {
+    return <div>Quiz page skeleton</div>
+  }
+
+  console.log('quest', data?.questions)
+
+  return (
+    <>
+      <ProgressBar />
+      <QuizSlider questions={data.questions} answers={data?.response.answers ?? []} />
+    </>
+  )
 }
