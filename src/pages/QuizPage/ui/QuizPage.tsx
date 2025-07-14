@@ -3,7 +3,6 @@ import { useGetNewMockQuizQuery } from '@/entities/quiz/api/quizApi'
 import { selectQuizSettings } from '@/features/quiz/configureQuiz/model/selectors/selectQuizSettings'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { mapQuizSettingsToRequest } from '@/features/quiz/configureQuiz'
-import { ProgressBar } from '@/shared/ui/ProgressBar/ProgressBar'
 import { QuizSlider } from '@/widgets/QuizSlider/ui/QuizSlider'
 
 export function QuizPage() {
@@ -17,10 +16,5 @@ export function QuizPage() {
 
   console.log('quest', data?.questions)
 
-  return (
-    <>
-      <ProgressBar />
-      <QuizSlider questions={data.questions} answers={data?.response.answers ?? []} />
-    </>
-  )
+  return <QuizSlider questions={data.questions} />
 }

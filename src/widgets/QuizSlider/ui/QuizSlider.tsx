@@ -1,24 +1,27 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Question } from '@/entities/question'
 import type { QuizAnswer } from '@/entities/quiz/model/types'
+import { ProgressBar } from '@/shared/ui/ProgressBar/ProgressBar'
+import type { Question } from '@/entities/question'
+import { AppRoutes } from '@/shared/const/router'
 import { AnswerQuestionButton } from '@/features/quiz/answerQuestion'
 import { QuestionCard } from '@/entities/question/ui/QuestionCard/QuestionCard'
+import { AnswerDropdown } from '@/shared/ui/AnswerDropdown/AnswerDropdown'
 import { Flex } from '@/shared/ui/Flex'
 import { QuestionNavigator } from './QuestionNavigator'
 import quizImage from '@/shared/assets/images/woman_goggles.png'
-import { AppRoutes } from '@/shared/const/router'
 
 interface QuizProps {
   questions: Array<Question>
-  answers: Array<QuizAnswer>
 }
 
-export function QuizSlider({ questions, answers }: QuizProps) {
+export function QuizSlider({ questions }: QuizProps) {
   const [questionCount, setQuestionCount] = useState(0)
   const navigate = useNavigate()
 
+  console.log('q', questions)
   const currentQuestion = questions[questionCount]
+  const shortAnswer = currentQuestion.shortAnswer
 
   const onPrev = () => setQuestionCount(questionCount - 1)
   const onNext = () => setQuestionCount(questionCount + 1)
@@ -27,8 +30,18 @@ export function QuizSlider({ questions, answers }: QuizProps) {
   const isFirstQuestion = questionCount === 0
   const isLastQuestion = questionCount === questions.length - 1
 
+  const render = (question: Question) => {
+    return (
+      <>
+        <span>{question.title}</span>
+        <AnswerDropdown title="Посмотреть ответ">{shortAnswer}</AnswerDropdown>
+      </>
+    )
+  }
+
   return (
     <>
+      <ProgressBar questions={questions} />
       <QuestionNavigator
         onPrev={onPrev}
         onNext={onNext}
@@ -36,7 +49,7 @@ export function QuizSlider({ questions, answers }: QuizProps) {
         disableNext={isLastQuestion}
       />
       <Flex>
-        <QuestionCard question={currentQuestion} />
+        <QuestionCard question={currentQuestion} render={render} />
         <div className="quiz_image">
           <img src={quizImage} alt="quiz_image" />
         </div>
