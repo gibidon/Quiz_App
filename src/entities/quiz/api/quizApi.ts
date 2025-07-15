@@ -8,7 +8,7 @@ export const quizApi = baseApi.injectEndpoints({
       // providesTags: () => [{ type: 'quiz', id: 'NEW' }],
       query: params => ({
         url: quizApiUrls.getNewMockQuiz,
-        // params: { limit: 10, skills: ['1', '3', '10001'] },
+        // params: { limit: 10, skills: ['6', '7'] },
         params,
       }),
     }),

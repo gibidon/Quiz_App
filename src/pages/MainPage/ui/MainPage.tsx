@@ -1,16 +1,12 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button } from '@/shared/ui/Button/Button'
-import { Header } from '@/widgets/Header/ui/Header'
-import { Footer } from '@/widgets/Footer/ui/Footer'
 import { Flex } from '@/shared/ui/Flex'
-// import { QuestionCard } from '@/entities/question/ui/QuestionCard/QuestionCard'
 import manPhoto from '@/shared/assets/images/man.png'
 import cls from './MainPage.module.scss'
 
 const MainPage = () => {
   return (
     <>
-      <Header />
       <div className={classNames(cls.mainPage, {}, ['container'])}>
         <section className={classNames(cls.banner, {}, [])}>
           <span className={cls.Goal}>YEAHUB ПОМОГАЕТ РАСТИ И ДОСТИГАТЬ ЦЕЛЕЙ</span>
@@ -78,7 +74,7 @@ const MainPage = () => {
         </section>
       </div>
       <section className={cls.prepare_interview}>
-        <Flex classes="container">
+        <Flex>
           {/* <Flex classes={classNames(cls.)}> */}
           <div className={cls.about_platform}>
             <h2>Подготовьтесь к собеседования в IT</h2>
@@ -105,7 +101,6 @@ const MainPage = () => {
           Statcstics widget здесь
         </Flex>
       </section>
-      <Footer />
     </>
   )
 }

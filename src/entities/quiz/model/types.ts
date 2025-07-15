@@ -27,7 +27,7 @@ export interface GetMockQuizResponse {
 }
 
 export interface QuizState {
-  // activeQuizQuestions: Array<Question>
+  questions: Array<Question>
   results: Array<QuizResult>
 }
 interface QuizResponse {

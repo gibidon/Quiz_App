@@ -12,7 +12,7 @@ export function AnswerDropdown({ title, children }: DropdownProps) {
   const isStringChild = typeof children === 'string'
 
   return (
-    <>
+    <div>
       <button onClick={() => setIsOpen(!isOpen)}>{title}</button>
       {isOpen && (
         <>
@@ -27,6 +27,6 @@ export function AnswerDropdown({ title, children }: DropdownProps) {
           )}
         </>
       )}
-    </>
+    </div>
   )
 }

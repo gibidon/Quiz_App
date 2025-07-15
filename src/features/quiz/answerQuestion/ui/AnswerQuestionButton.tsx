@@ -1,5 +1,5 @@
-import { Question } from '@/entities/question'
-import { QuestionAnswer } from '@/entities/quiz'
+import type { Question } from '@/entities/question'
+import type { QuestionAnswer } from '@/entities/quiz'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { addResult } from '@/entities/quiz'
 

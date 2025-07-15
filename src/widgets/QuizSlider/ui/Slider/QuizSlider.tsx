@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import type { QuizAnswer } from '@/entities/quiz/model/types'
-import { ProgressBar } from '@/shared/ui/ProgressBar/ProgressBar'
 import type { Question } from '@/entities/question'
 import { AppRoutes } from '@/shared/const/router'
 import { AnswerQuestionButton } from '@/features/quiz/answerQuestion'
 import { QuestionCard } from '@/entities/question/ui/QuestionCard/QuestionCard'
 import { AnswerDropdown } from '@/shared/ui/AnswerDropdown/AnswerDropdown'
 import { Flex } from '@/shared/ui/Flex'
-import { QuestionNavigator } from './QuestionNavigator'
+import { QuestionNavigator } from '../QuiestionNavigator/QuestionNavigator'
 import quizImage from '@/shared/assets/images/woman_goggles.png'
+import cls from './QuizSlider.module.scss'
 
 interface QuizProps {
   questions: Array<Question>
@@ -17,6 +16,8 @@ interface QuizProps {
 
 export function QuizSlider({ questions }: QuizProps) {
   const [questionCount, setQuestionCount] = useState(0)
+  const result = useState<null | 'known' | 'unknown'>(null)
+
   const navigate = useNavigate()
 
   console.log('q', questions)
@@ -35,13 +36,20 @@ export function QuizSlider({ questions }: QuizProps) {
       <>
         <span>{question.title}</span>
         <AnswerDropdown title="Посмотреть ответ">{shortAnswer}</AnswerDropdown>
+        <Flex className={cls.buttons}>
+          <AnswerQuestionButton title="Знаю" answerValue={'known'} question={currentQuestion} />
+          <AnswerQuestionButton
+            title="Не знаю"
+            answerValue={'unknown'}
+            question={currentQuestion}
+          />
+        </Flex>
       </>
     )
   }
 
   return (
-    <>
-      <ProgressBar questions={questions} />
+    <div className={cls.slider}>
       <QuestionNavigator
         onPrev={onPrev}
         onNext={onNext}
@@ -49,18 +57,15 @@ export function QuizSlider({ questions }: QuizProps) {
         disableNext={isLastQuestion}
       />
       <Flex>
-        <QuestionCard question={currentQuestion} render={render} />
-        <div className="quiz_image">
+        <QuestionCard question={currentQuestion} render={render} className={cls.card} />
+        <div className={cls.img}>
           <img src={quizImage} alt="quiz_image" />
         </div>
       </Flex>
-      <Flex>
-        <AnswerQuestionButton title="Знаю" answerValue={'known'} question={currentQuestion} />
-        <AnswerQuestionButton title="Не знаю" answerValue={'unknown'} question={currentQuestion} />
-      </Flex>
-      <button disabled={!isLastQuestion} onClick={endQuiz}>
+
+      <button onClick={endQuiz} className={cls.endQuiz}>
         Завершить
       </button>
-    </>
+    </div>
   )
 }

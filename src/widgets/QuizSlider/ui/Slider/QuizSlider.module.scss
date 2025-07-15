@@ -1,0 +1,24 @@
+.card {
+  flex:1;
+  display: flex;
+  flex-direction: column;
+}
+
+.img {
+  flex:1;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+
+}
+
+.endQuiz {
+  margin-left: auto;
+  max-width: 20%;
+}
