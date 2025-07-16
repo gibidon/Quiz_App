@@ -1,4 +1,7 @@
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { QuizResult } from '../../model/types'
+
+import cls from './QuizResultCard.module.scss'
 
 interface QuizResultCardProps {
   result: QuizResult
@@ -6,9 +9,10 @@ interface QuizResultCardProps {
 
 export function QuizResultCard({ result }: QuizResultCardProps) {
   return (
-    <>
-      <div>{result.question.title}</div>
+    <div className={classNames(cls.card, {}, [])}>
+      {/* <Image /> */}
+      <div>{result.questionTitle}</div>
       <div>{result.answer}</div>
-    </>
+    </div>
   )
 }

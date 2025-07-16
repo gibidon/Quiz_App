@@ -1,5 +1,17 @@
 import { selectQuizResults } from './model/selectors/selectQuizResult'
+import { selectAnsweredQuantity } from './model/selectors/selectAnsweredQuantity'
+import { selectAnsweredResults } from './model/selectors/selectAnsweredResults'
+import { selectKnownResults } from './model/selectors/selectKnownResults'
 import { addResult, resetResults } from './slices/quizSlice'
 import type { QuestionAnswer, QuizResult } from './model/types'
 
-export { selectQuizResults, addResult, resetResults, QuestionAnswer, QuizResult }
+export {
+  addResult,
+  resetResults,
+  QuestionAnswer,
+  QuizResult,
+  selectAnsweredQuantity,
+  selectAnsweredResults,
+  selectQuizResults,
+  selectKnownResults,
+}

@@ -4,26 +4,32 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { mapQuizSettingsToRequest } from '@/features/quiz/configureQuiz'
 import { QuizSlider } from '@/widgets/QuizSlider/ui/Slider/QuizSlider'
 import { Container } from '@/shared/ui/Container/Container'
-import { ProgressBar } from '@/shared/ui/ProgressBar/ProgressBar'
+import { Progress } from '@/shared/ui/Progress/Progress'
 import { Flex } from '@/shared/ui/Flex'
+import { selectAnsweredQuantity } from '@/entities/quiz'
 import cls from './QuizPage.module.scss'
 
-export function QuizPage() {
+export default function QuizPage() {
   const rawSettings = useAppSelector(selectQuizSettings)
   const requestParams = mapQuizSettingsToRequest(rawSettings)
   const { data, isFetching, isLoading } = useGetNewMockQuizQuery(requestParams)
+  const answeredQuestionsNumber = useAppSelector(selectAnsweredQuantity)
+
+  console.log('data', data)
 
   if (!data || isFetching || isLoading) {
     return <div>Quiz page skeleton</div>
   }
 
+  const { fullCount, questions } = data
+
   return (
     <Flex direction="column" className={cls.quizPage}>
       <Container>
-        <ProgressBar questions={data.questions} />
+        <Progress total={fullCount} current={answeredQuestionsNumber} />
       </Container>
       <Container>
-        <QuizSlider questions={data.questions} />
+        <QuizSlider questions={questions} />
       </Container>
     </Flex>
   )

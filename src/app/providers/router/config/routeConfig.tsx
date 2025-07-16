@@ -4,7 +4,7 @@ import { MainPage } from '@/pages/MainPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { QuizPage } from '@/pages/QuizPage'
 import { QuizSettingsPage } from '@/pages/QuizSettingsPage'
-import { QuizResultsPage } from '@/pages/QuizResultsPage/ui/QuizResultsPage'
+import { QuizResultsPage } from '@/pages/QuizResultsPage'
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {

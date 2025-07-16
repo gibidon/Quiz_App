@@ -1,3 +1,3 @@
-import { QuizSettingsPage } from './ui/QuizSettingsPage'
+import { QuizSettingsPageAsync } from './ui/QuizSettingPageAsync'
 
-export { QuizSettingsPage }
+export { QuizSettingsPageAsync as QuizSettingsPage }

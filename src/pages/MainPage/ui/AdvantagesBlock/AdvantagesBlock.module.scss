@@ -1,0 +1,7 @@
+.advantages {
+    display: flex;
+
+    .questions, .simulator {
+        flex-basis: 50%;
+    }
+}

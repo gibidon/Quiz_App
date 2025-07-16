@@ -1,0 +1,11 @@
+.card {
+  overflow: hidden;
+  max-width: 100%;
+  display: inline-block;
+}
+
+.image {
+  display: block;
+  height: auto;
+  object-fit: cover;
+}

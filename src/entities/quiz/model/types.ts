@@ -27,7 +27,6 @@ export interface GetMockQuizResponse {
 }
 
 export interface QuizState {
-  questions: Array<Question>
   results: Array<QuizResult>
 }
 interface QuizResponse {
@@ -39,8 +38,9 @@ export interface QuizAnswer {
   questionTitle: string
 }
 
-export type QuestionAnswer = 'known' | 'unknown'
+export type QuestionAnswer = 'known' | 'unknown' | null
 export interface QuizResult {
-  question: Question
+  questionId: Question['id']
+  questionTitle: Question['title']
   answer: QuestionAnswer
 }

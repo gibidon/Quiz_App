@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { Question } from '@/entities/question'
 import { AppRoutes } from '@/shared/const/router'
-import { AnswerQuestionButton } from '@/features/quiz/answerQuestion'
+import { AnswerQuestionButton, useAnswerQuestion } from '@/features/quiz/answerQuestion'
 import { QuestionCard } from '@/entities/question/ui/QuestionCard/QuestionCard'
 import { AnswerDropdown } from '@/shared/ui/AnswerDropdown/AnswerDropdown'
 import { Flex } from '@/shared/ui/Flex'
 import { QuestionNavigator } from '../QuiestionNavigator/QuestionNavigator'
+import { ImageCard } from '@/shared/ui/ImageCard/ImageCard'
 import quizImage from '@/shared/assets/images/woman_goggles.png'
 import cls from './QuizSlider.module.scss'
 
@@ -37,11 +38,15 @@ export function QuizSlider({ questions }: QuizProps) {
         <span>{question.title}</span>
         <AnswerDropdown title="Посмотреть ответ">{shortAnswer}</AnswerDropdown>
         <Flex className={cls.buttons}>
-          <AnswerQuestionButton title="Знаю" answerValue={'known'} question={currentQuestion} />
           <AnswerQuestionButton
-            title="Не знаю"
+            questionTitle={question.title}
+            answerValue={'known'}
+            questionId={currentQuestion.id}
+          />
+          <AnswerQuestionButton
+            questionTitle={question.title}
             answerValue={'unknown'}
-            question={currentQuestion}
+            questionId={currentQuestion.id}
           />
         </Flex>
       </>
@@ -58,9 +63,7 @@ export function QuizSlider({ questions }: QuizProps) {
       />
       <Flex>
         <QuestionCard question={currentQuestion} render={render} className={cls.card} />
-        <div className={cls.img}>
-          <img src={quizImage} alt="quiz_image" />
-        </div>
+        <ImageCard src={quizImage} alt="quiz_image" className={cls.img} />
       </Flex>
 
       <button onClick={endQuiz} className={cls.endQuiz}>

@@ -1,5 +1,7 @@
-import { Question } from '../../model/types'
 import type { ReactNode } from 'react'
+import { Question } from '../../model/types'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import cls from './QuestionCard.module.scss'
 
 interface QuestionCardProps {
   question: Question
@@ -8,5 +10,5 @@ interface QuestionCardProps {
 }
 
 export function QuestionCard({ question, render, className = '' }: QuestionCardProps) {
-  return <div className={className}>{render(question)}</div>
+  return <div className={classNames(cls.questionCard, {}, [...className])}>{render(question)}</div>
 }

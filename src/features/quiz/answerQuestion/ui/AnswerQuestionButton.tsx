@@ -2,19 +2,24 @@ import type { Question } from '@/entities/question'
 import type { QuestionAnswer } from '@/entities/quiz'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { addResult } from '@/entities/quiz'
+import { useAnswerQuestion } from '../model/answerQuestion'
 
 interface AnswerQuestionButtonProps {
-  title: string
-  question: Question
+  questionTitle: Question['title']
+  questionId: Question['id']
   answerValue: QuestionAnswer
 }
 
-export function AnswerQuestionButton({ title, question, answerValue }: AnswerQuestionButtonProps) {
-  const dispatch = useAppDispatch()
+export function AnswerQuestionButton({
+  questionId,
+  questionTitle,
+  answerValue,
+}: AnswerQuestionButtonProps) {
+  const answerQuestion = useAnswerQuestion()
 
   const onClick = () => {
-    dispatch(addResult({ question, answer: answerValue }))
+    answerQuestion(questionId, answerValue, questionTitle)
   }
 
-  return <button onClick={onClick}>{title}</button>
+  return <button onClick={onClick}>{answerValue}</button>
 }
