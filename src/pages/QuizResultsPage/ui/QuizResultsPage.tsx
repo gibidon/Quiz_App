@@ -5,13 +5,11 @@ import { resetResults, selectQuizResults } from '@/entities/quiz'
 import { QuizResults } from '@/widgets/QuizResults/ui/QuizResults'
 import { useNavigate } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { QuestionCard } from '@/entities/question/ui/QuestionCard/QuestionCard'
 import cls from './QuizResultsPage.module.scss'
 
 export default function QuizResultsPage() {
   const results = useAppSelector(selectQuizResults)
 
-  console.log('r', results)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
@@ -21,7 +19,7 @@ export default function QuizResultsPage() {
   }
 
   return (
-    <div className={classNames(cls.resultPage, {}, ['container'])}>
+    <div className={classNames(cls.resultPage, {}, [])}>
       <div className="joinUs">join us</div>
       <div className="yeahub">yeahub</div>
       <QuizResults results={results} />

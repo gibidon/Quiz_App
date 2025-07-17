@@ -23,6 +23,7 @@ export interface GetMockQuizRequest {
   complexity?: Array<number>
   skills?: Array<string>
   limit?: number
+  excluseIDs?: Array<string>
 }
 
 export interface GetMockQuizResponse {

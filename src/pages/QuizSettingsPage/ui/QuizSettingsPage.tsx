@@ -1,7 +1,6 @@
 import { AppRoutes } from '@/shared/const/router'
 import { useNavigate } from 'react-router-dom'
 import { SkillSelector } from '@/widgets/SkillSelector'
-import { Button } from '@/shared/ui/Button'
 import { ParameterSelector } from '@/widgets/ParameterSelector/ParameterSelector'
 import cls from './QuizSettingsPage.module.scss'
 

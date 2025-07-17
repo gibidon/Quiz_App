@@ -5,6 +5,7 @@ export type QuizSetupState = {
     complexity?: Array<number>
     skillIDs?: Array<number>
     limit?: number
+    mode?: QuizMode
   }
 }
 

@@ -3,7 +3,6 @@ import { selectQuizSettings } from '@/features/quiz/setupQuiz/model/selectors/se
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { mapQuizSettingsToRequest } from '@/features/quiz/setupQuiz'
 import { Quiz } from '@/widgets/Quiz/ui/Quiz/Quiz'
-import { Container } from '@/shared/ui/Container/Container'
 import { Progress } from '@/shared/ui/Progress/Progress'
 import { Flex } from '@/shared/ui/Flex'
 import { selectAnsweredQuantity } from '@/entities/quiz'
@@ -25,12 +24,8 @@ export default function QuizPage() {
 
   return (
     <Flex direction="column" className={cls.quizPage}>
-      <Container>
-        <Progress total={fullCount} current={answeredQuestionsNumber} />
-      </Container>
-      <Container>
-        <Quiz questions={questions} />
-      </Container>
+      <Progress total={fullCount} current={answeredQuestionsNumber} />
+      <Quiz questions={questions} />
     </Flex>
   )
 }

@@ -5,14 +5,14 @@ export function Footer() {
   return (
     <footer className={classNames(cls.Footer, {}, [])}>
       <div className={classNames('container', {}, [])}>
-        <div>YeaHub</div>
-        <div>Выбери, каким будет IT завтра вместе с нами</div>
-        <div>Icons</div>
+        <p>YeaHub</p>
+        <p>Выбери, каким будет IT завтра вместе с нами</p>
+        <p>Icons</p>
         <div>
           YeaHub - это полностью открытый проект, призванный обьединить и улучшить IT-сферу. Наш
           исходный код доступен
         </div>
-        <div>&copy; 2024 YeaHub</div>
+        <p>&copy; 2024 YeaHub</p>
       </div>
     </footer>
   )

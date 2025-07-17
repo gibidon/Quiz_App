@@ -8,7 +8,7 @@ import cls from './MainPage.module.scss'
 
 export const MainPage = () => {
   return (
-    <div className={classNames(cls.mainPage, {}, ['container'])}>
+    <div className={classNames(cls.mainPage, {}, [])}>
       <BannerBlock />
       <AdvantagesBlock />
       <PrepareInterviewBlock />
