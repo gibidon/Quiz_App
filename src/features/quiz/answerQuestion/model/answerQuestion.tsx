@@ -8,13 +8,13 @@ export function useAnswerQuestion() {
   const dispatch = useAppDispatch()
   const currentAnswers = useAppSelector(selectAnsweredResults)
 
-  return (id: number, answer: DefinedAnswer) => {
+  return (id: number, answer: DefinedAnswer, questionTitle: string) => {
     const answerExists = currentAnswers.find(answer => answer.questionId === id)
 
     if (answerExists) {
       dispatch(updateResult({ id, answer }))
     } else {
-      dispatch(addResult({ questionId: id, answer }))
+      dispatch(addResult({ questionId: id, answer, questionTitle }))
     }
   }
 }

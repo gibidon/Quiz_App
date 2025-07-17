@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react'
-import { Question } from '../../model/types'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { QuestionAnswer } from '@/entities/quiz'
 import cls from './QuestionCard.module.scss'
 
 interface QuestionCardProps {
-  question: Question
+  question: QuestionAnswer
   className?: string
-  render: (question: Question) => ReactNode
+  render: (question: QuestionAnswer) => ReactNode
 }
 
 export function QuestionCard({ question, render, className = '' }: QuestionCardProps) {

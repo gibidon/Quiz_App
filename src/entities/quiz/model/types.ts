@@ -7,6 +7,7 @@ export interface Quiz {
 export type QuestionAnswer = {
   answer: 'known' | 'unknown' | null
   questionId: number
+  questionTitle: string
 }
 
 export type DefinedAnswer = NonNullable<QuestionAnswer['answer']>

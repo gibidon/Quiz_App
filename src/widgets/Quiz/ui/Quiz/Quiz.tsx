@@ -47,12 +47,12 @@ export function Quiz({ questions }: QuizProps) {
         <Flex className={cls.buttons}>
           <Button
             title="Знаю"
-            onClick={() => answerQuestion(question.id, 'known')}
+            onClick={() => answerQuestion(question.id, 'known', currentQuestion.title)}
             isActive={result === 'known'}
           />
           <Button
             title="Не знаю"
-            onClick={() => answerQuestion(question.id, 'unknown')}
+            onClick={() => answerQuestion(question.id, 'unknown', currentQuestion.title)}
             isActive={result === 'unknown'}
           />
         </Flex>
