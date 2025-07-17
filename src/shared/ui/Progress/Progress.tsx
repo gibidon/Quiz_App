@@ -1,3 +1,5 @@
+import cls from './Progress.module.scss'
+
 interface ProgressProps {
   total: number
   current: number
@@ -8,7 +10,12 @@ export const Progress = ({ total, current }: ProgressProps) => {
 
   return (
     <>
-      <div className="questions">Вопросы собеседования</div>
+      <div className={cls.questions}>
+        <span>Вопросы собеседования</span>
+        <span>
+          Выполнено: {current} / {total}
+        </span>
+      </div>
       <div
         style={{
           height: '1rem',

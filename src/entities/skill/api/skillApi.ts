@@ -4,7 +4,7 @@ import type { GetSkillsResponse, GetSkillsRequest, Skill } from '../model/types'
 
 export const skillApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    getSkills: build.query<Skill[], void | GetSkillsRequest>({
+    getSkills: build.query<Skill[], GetSkillsRequest>({
       query: params => {
         return {
           url: skillApiUrls.getSkills,

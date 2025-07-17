@@ -1,13 +1,23 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { QuizSettings } from '@/widgets/QuizSettings'
+import { AppRoutes } from '@/shared/const/router'
+import { useNavigate } from 'react-router-dom'
+import { SkillSelector } from '@/widgets/SkillSelector'
+import { Button } from '@/shared/ui/Button'
+import { ParameterSelector } from '@/widgets/ParameterSelector/ParameterSelector'
 import cls from './QuizSettingsPage.module.scss'
 
-export default function QuizSettingsPage() {
+export default function QuizSettings() {
+  const navigate = useNavigate()
+
   return (
-    <div className={classNames(cls.quiz_settings_page, {}, ['container'])}>
+    <>
       <h1>Собеседование</h1>
-      <QuizSettings />
-      <div>Parameters settings</div>
-    </div>
+      <div className={cls.settings}>
+        <SkillSelector />
+        <ParameterSelector />
+      </div>
+      <button title={'Начать'} onClick={() => navigate(`${AppRoutes.QUIZ}`)}>
+        Начать
+      </button>
+    </>
   )
 }

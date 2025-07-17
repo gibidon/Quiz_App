@@ -24,6 +24,10 @@ export default [
         window: 'readonly',
         document: 'readonly',
         console: 'readonly',
+        HTMLInputElement: 'readonly',
+        HTMLElement: 'readonly',
+        Event: 'readonly',
+        EventTarget: 'readonly',
       },
     },
 

@@ -1,9 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { QuizMode, quizSetupState } from '../types/types'
+import { QuizSetupState } from '../types/types'
 import { Skill } from '@/entities/skill'
 
-const initialState: quizSetupState = {
-  settings: {},
+const initialState: QuizSetupState = {
+  settings: {
+    complexity: [1, 2, 3],
+    limit: 10,
+  },
 }
 
 export const quizSetupSlice = createSlice({
@@ -34,9 +37,6 @@ export const quizSetupSlice = createSlice({
 
       state.settings.complexity = Array.from(set)
     },
-    toggleMode: (state, action: PayloadAction<QuizMode>) => {
-      state.settings.mode = action.payload
-    },
     setLimit: (state, action: PayloadAction<number>) => {
       state.settings.limit = action.payload
     },
@@ -44,4 +44,4 @@ export const quizSetupSlice = createSlice({
 })
 
 export const quizSetupReducer = quizSetupSlice.reducer
-export const { setLimit, toggleComplexity, toggleMode, toggleSkillID } = quizSetupSlice.actions
+export const { setLimit, toggleComplexity, toggleSkillID } = quizSetupSlice.actions

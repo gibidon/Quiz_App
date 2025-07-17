@@ -1,7 +1,6 @@
 import { Specialization } from '@/entities/specialization/@x/skill.ts'
 import { Response } from '@/shared/types/types'
 
-//point where close integration with backend is important!
 export interface Skill {
   id: number
   title: string
