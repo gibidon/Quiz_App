@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { QuizState, QuizResult, QuestionAnswer } from '../model/types'
+import { QuizState, QuestionAnswer, DefinedAnswer } from '../model/types'
 import { PayloadAction } from '@reduxjs/toolkit'
 
 const initialState: QuizState = {
@@ -10,13 +10,13 @@ export const quizSlice = createSlice({
   name: 'quizSlice',
   initialState,
   reducers: {
-    addResult: (state, action: PayloadAction<QuizResult>) => {
+    addResult: (state, action: PayloadAction<QuestionAnswer>) => {
       state.results.push(action.payload)
     },
     resetResults: state => {
       state.results = []
     },
-    updateResult: (state, action: PayloadAction<{ id: number; answer: QuestionAnswer }>) => {
+    updateResult: (state, action: PayloadAction<{ id: number; answer: DefinedAnswer }>) => {
       const existingAnswer = state.results.find(answer => answer.questionId === action.payload.id)
 
       if (existingAnswer) {

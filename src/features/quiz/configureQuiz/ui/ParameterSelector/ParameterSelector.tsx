@@ -1,11 +1,11 @@
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { toggleComplexity } from '../../model/slices/quizSetup.slice'
 import { Button } from '@/shared/ui/Button'
-import cls from './PapameterSelector.module.scss'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { selectComplexity } from '../../model/selectors/selectComplexity'
 import { selectQuizMode } from '../../model/selectors/selectQuizMode'
 import { selectQuestionLimit } from '../../model/selectors/selectQuestionLimit'
+import cls from './ParameterSelector.module.scss'
 
 export function ParameterSelector() {
   const complexity = useAppSelector(selectComplexity)
@@ -21,7 +21,7 @@ export function ParameterSelector() {
   return (
     <>
       <div className={cls.complexitySelector}>
-        <Button title={'1 - 3'} isActive={complexity?.includes(3)} />
+        {/* <Button title={'1 - 3'} isActive={complexity?.includes(3)} /> */}
       </div>
       {/* {skills?.map(skill => (
         <SkillItem

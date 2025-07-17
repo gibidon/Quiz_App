@@ -8,6 +8,7 @@ interface ButtonProps {
 }
 
 export function Button({ title, isActive, onClick }: ButtonProps) {
+  console.log('ia', isActive)
   const mods: Mods = {
     [cls.active]: isActive,
   }

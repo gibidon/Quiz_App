@@ -10,7 +10,7 @@ export interface ImageCardProps {
 export const ImageCard = ({ src, alt, className = '', imgClassName = '' }: ImageCardProps) => {
   return (
     <div className={`${cls.card} ${className}`}>
-      <img src={src} alt={alt} className={`${cls.image} ${imgClassName}`} />
+      <img src={src} alt={alt} className={`${imgClassName}`} />
     </div>
   )
 }

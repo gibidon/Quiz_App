@@ -1,10 +1,18 @@
 import { Question } from '@/entities/question/@x/quiz.ts'
 
 export interface Quiz {
-  startDate: string
-  fullCount: number
-  response: QuizResponse
-  questions: Question[]
+  answers: Array<QuestionAnswer>
+}
+
+export type QuestionAnswer = {
+  answer: 'known' | 'unknown' | null
+  questionId: number
+}
+
+export type DefinedAnswer = NonNullable<QuestionAnswer['answer']>
+
+export type QuizState = {
+  results: Array<QuestionAnswer>
 }
 
 export type QuizFilterState = {
@@ -21,26 +29,7 @@ export interface GetMockQuizResponse {
   fullCount: number
   questions: Array<Question>
   response: {
-    answers: Array<QuizAnswer>
+    answers: Array<{ questionId: number; questionTitle: string }>
   }
   startDate: string
-}
-
-export interface QuizState {
-  results: Array<QuizResult>
-}
-interface QuizResponse {
-  answers: QuizAnswer[]
-}
-
-export interface QuizAnswer {
-  questionId: number
-  questionTitle: string
-}
-
-export type QuestionAnswer = 'known' | 'unknown' | null
-export interface QuizResult {
-  questionId: Question['id']
-  questionTitle: Question['title']
-  answer: QuestionAnswer
 }

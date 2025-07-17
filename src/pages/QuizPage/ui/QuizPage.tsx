@@ -2,7 +2,7 @@ import { useGetNewMockQuizQuery } from '@/entities/quiz/api/quizApi'
 import { selectQuizSettings } from '@/features/quiz/configureQuiz/model/selectors/selectQuizSettings'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { mapQuizSettingsToRequest } from '@/features/quiz/configureQuiz'
-import { QuizSlider } from '@/widgets/QuizSlider/ui/Slider/QuizSlider'
+import { Quiz } from '@/widgets/Quiz/ui/Quiz/Quiz'
 import { Container } from '@/shared/ui/Container/Container'
 import { Progress } from '@/shared/ui/Progress/Progress'
 import { Flex } from '@/shared/ui/Flex'
@@ -29,7 +29,7 @@ export default function QuizPage() {
         <Progress total={fullCount} current={answeredQuestionsNumber} />
       </Container>
       <Container>
-        <QuizSlider questions={questions} />
+        <Quiz questions={questions} />
       </Container>
     </Flex>
   )
