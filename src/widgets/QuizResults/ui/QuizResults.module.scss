@@ -4,8 +4,13 @@
     gap:1rem;
 }
 
-@media screen and (max-width: 780px) {
+.card {
+    display: flex;
+    gap: 0.3rem;
+}
+
+@media screen and (max-width: 768px) {
     .results {
-        grid-template-columns: 1;
+        display: block;
     }
 }

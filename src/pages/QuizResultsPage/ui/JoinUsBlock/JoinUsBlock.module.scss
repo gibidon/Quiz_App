@@ -1,4 +1,26 @@
 .links {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    gap: .4rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.links a {
+    display: block;
+    width: 100%;
+}
+
+.membershipLink::after {
+  content: '→';
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.membershipLink:hover::after {
+  transform: translateX(4px);
+}
+
+@media screen and (max-width: 768px){
+    .links {
+        display: block;
+    }
 }

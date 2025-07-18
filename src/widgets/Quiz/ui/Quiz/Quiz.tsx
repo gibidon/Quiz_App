@@ -11,7 +11,8 @@ import { Flex } from '@/shared/ui/Flex'
 import { QuestionNavigator } from '../QuiestionNavigator/QuestionNavigator'
 import { ImageCard } from '@/shared/ui/ImageCard/ImageCard'
 import { Button } from '@/shared/ui/Button'
-import quizImage from '@/shared/assets/images/woman_goggles.png'
+import { Container } from "@/shared/ui/Container/Container"
+import womanGogglesImage from '@/shared/assets/images/woman_goggles.png'
 import cls from './Quiz.module.scss'
 
 interface QuizProps {
@@ -21,61 +22,68 @@ interface QuizProps {
 export function Quiz({ questions }: QuizProps) {
   const [count, setCount] = useState(0)
   const currentQuestion = questions[count]
-  const result = useAppSelector(selectAnswerByQuestionId(currentQuestion.id))
+  const userAnswer = useAppSelector(selectAnswerByQuestionId(currentQuestion.id))
 
-  const shortAnswer = currentQuestion.shortAnswer
-  const navigate = useNavigate()
-
-  const onPrev = () => {
-    setCount(count - 1)
-  }
-  const onNext = () => {
-    setCount(count + 1)
-  }
+  const onPrev = () => setCount(count - 1)
+  const onNext = () => setCount(count + 1)
   const endQuiz = () => navigate(AppRoutes.QUIZ_RESULTS)
+  const answerQuestion = useAnswerQuestion()
+  const navigate = useNavigate()
 
   const isFirstQuestion = count === 0
   const isLastQuestion = count === questions.length - 1
 
-  const answerQuestion = useAnswerQuestion()
-
-  const render = (question: Question) => {
+  const render = ({questionTitle, shortAnswer}:{questionTitle: string, shortAnswer: string}) => {
     return (
       <>
-        <h1>{question.title}</h1>
+        <h1>{questionTitle}</h1>
         <AnswerDropdown title="Посмотреть ответ">{shortAnswer}</AnswerDropdown>
-        <Flex className={cls.buttons}>
-          <Button
-            title="Знаю"
-            onClick={() => answerQuestion(question.id, 'known', currentQuestion.title)}
-            isActive={result === 'known'}
-          />
-          <Button
-            title="Не знаю"
-            onClick={() => answerQuestion(question.id, 'unknown', currentQuestion.title)}
-            isActive={result === 'unknown'}
-          />
-        </Flex>
       </>
     )
   }
 
   return (
-    <div className={cls.quiz}>
-      <QuestionNavigator
-        onPrev={onPrev}
-        onNext={onNext}
-        disablePrev={isFirstQuestion}
-        disableNext={isLastQuestion}
-      />
-      <Flex>
-        <QuestionCard question={currentQuestion} render={render} className={cls.card} />
-        <ImageCard src={quizImage} alt="quiz_image" className={cls.img} />
-      </Flex>
-
-      <button onClick={endQuiz} className={cls.endQuiz}>
-        Завершить
-      </button>
-    </div>
+    <Container>
+      <div className={cls.quiz}>
+        <QuestionNavigator
+          onPrev={onPrev}
+          onNext={onNext}
+          disablePrev={isFirstQuestion}
+          disableNext={isLastQuestion}
+        />
+        <div className={cls.quizContent}>
+          <QuestionCard
+             data={{ 
+               questionTitle: currentQuestion.title,
+               shortAnswer: currentQuestion.shortAnswer,
+               userAnswer: userAnswer 
+              }}
+        
+            render={render}
+            className={cls.card}
+          />
+          <ImageCard src={womanGogglesImage} alt="quiz_image" className={cls.img} />
+          <div className={cls.answerButtons}>
+            <Button
+              onClick={() => answerQuestion(currentQuestion.id, 'known', currentQuestion.title)}
+              isActive={userAnswer === 'known'}
+            >
+              Знаю
+            </Button>
+            <Button
+              isActive={userAnswer === 'unknown'}
+              onClick={() => answerQuestion(currentQuestion.id, 'unknown', currentQuestion.title)}
+            >
+              Не знаю
+            </Button>
+        </div>
+        </div>
+        <Flex justify="flex-end">
+          <Button onClick={endQuiz} destructive>
+            Завершить
+          </Button>
+        </Flex>
+      </div>
+    </Container>
   )
 }

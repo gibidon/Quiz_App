@@ -45,6 +45,7 @@ export default [
       ...reactHooks.configs.recommended.rules,
       'prettier/prettier': 'error',
       'no-console': 'warn',
+      'noiundef': 'fales',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'react/react-in-jsx-scope': 'off',

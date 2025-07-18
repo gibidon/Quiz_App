@@ -4,6 +4,7 @@ import {
   toggleComplexity,
 } from '../../features/quiz/setupQuiz/model/slices/quizSetup.slice'
 import { Button } from '@/shared/ui/Button'
+import { Flex } from "@/shared/ui/Flex"
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { selectComplexity } from '../../features/quiz/setupQuiz/model/selectors/selectComplexity'
 import { selectQuestionLimit } from '../../features/quiz/setupQuiz/model/selectors/selectQuestionLimit'
@@ -24,21 +25,30 @@ export function ParameterSelector() {
     <div className={cls.parameters}>
       <div className={cls.complexitySelector}>
         <h2>Уровень сложности</h2>
-        <Button
-          title={'1 - 3'}
-          isActive={complexity?.includes(3) ?? false}
-          onClick={() => onComplexityChange([1, 2, 3])}
-        />
-        <Button
-          title={'4 - 7'}
-          isActive={complexity?.includes(7) ?? false}
-          onClick={() => onComplexityChange([4, 5, 6, 7])}
-        />
-        <Button
-          title={'8 - 10'}
-          isActive={complexity?.includes(8) ?? false}
-          onClick={() => onComplexityChange([8, 9, 10])}
-        />
+        <Flex gap={30}>
+          <Button
+            title={'1 - 3'}
+            isActive={complexity?.includes(3) ?? false}
+            onClick={() => onComplexityChange([1, 2, 3])}
+          >
+            1 - 3
+          </Button>
+          <Button
+            title={'4 - 7'}
+            isActive={complexity?.includes(7) ?? false}
+            onClick={() => onComplexityChange([4, 5, 6, 7])}
+          >
+            4 - 7
+          </Button>
+          <Button
+            title={'8 - 10'}
+            isActive={complexity?.includes(8) ?? false}
+            onClick={() => onComplexityChange([8, 9, 10])}
+          >
+            8 - 10
+          </Button>
+        </Flex>
+       
       </div>
       <div className="limitSelector">
         <h2>Количество вопросов</h2>

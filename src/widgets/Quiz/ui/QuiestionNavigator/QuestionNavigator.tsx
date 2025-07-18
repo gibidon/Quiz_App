@@ -1,4 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { Button } from "@/shared/ui/Button"
 import cls from './QuestionNavigator.module.scss'
 
 interface QuestionNavigatorProps {
@@ -16,20 +17,20 @@ export function QuestionNavigator({
 }: QuestionNavigatorProps) {
   return (
     <div className={cls.navigator}>
-      <button
+      <Button
         className={classNames(cls.navButton, {}, [cls.prev])}
         onClick={onPrev}
         disabled={disablePrev}
       >
         Назад
-      </button>
-      <button
+      </Button>
+      <Button
         className={classNames(cls.navButton, {}, [cls.next])}
         onClick={onNext}
         disabled={disableNext}
       >
         Далее
-      </button>
+      </Button>
     </div>
   )
 }

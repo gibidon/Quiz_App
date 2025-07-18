@@ -1,11 +1,12 @@
-import { useState, ChangeEvent } from 'react'
+import { ChangeEvent } from 'react'
+import cls from './QuantitySelector.module.scss'
+import { Flex } from "../Flex"
 
 interface QuantitySelectorProps {
   value: number
   min?: number
   max?: number
   step?: number
-  initial?: number
   onChange: (value: number) => void
 }
 
@@ -17,27 +18,36 @@ export const QuantitySelector = ({
   onChange,
 }: QuantitySelectorProps) => {
   const decrement = () => {
-    onChange(value - step)
+    onChange(Math.max(min, value - step))
   }
 
   const increment = () => {
-    onChange(value + step)
+    onChange(Math.min(max, value + step))
+  }
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const parsed = Number(e.target.value)
+    if (!isNaN(parsed)) {
+      onChange(Math.max(min, Math.min(max, parsed)))
+    }
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+    <Flex align="center">
       <button onClick={decrement} disabled={value <= min}>
         −
       </button>
       <input
         type="number"
         value={value}
-        // onChange={handleChange}
-        style={{ width: '60px', textAlign: 'center' }}
+        onChange={handleChange}
+        min={min}
+        max={max}
+        step={step}
       />
       <button onClick={increment} disabled={value >= max}>
         +
       </button>
-    </div>
+    </Flex>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import cls from './Container.module.scss'
 
 type ContainerProps = {
   children: React.ReactNode
@@ -11,22 +12,18 @@ type ContainerProps = {
 
 export function Container({
   children,
-  maxWidth = '1024px',
-  padding = '0 1rem',
-  margin = '0 auto',
+  padding = '1rem',
   style = {},
   className = '',
 }: ContainerProps) {
   const combinedStyle: React.CSSProperties = {
-    maxWidth,
-    width: '100%',
     padding,
-    margin,
+    borderRadius: '1rem',
     ...style,
   }
 
   return (
-    <div className={className} style={combinedStyle}>
+    <div className={`${cls.container} ${className}`} style={combinedStyle}>
       {children}
     </div>
   )

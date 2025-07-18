@@ -1,3 +1,18 @@
+.resultsPage {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
 .ads {
     display: flex;   
+    gap: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .ads {
+        flex-direction: column;
+    }
+
+    
 }

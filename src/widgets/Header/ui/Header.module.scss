@@ -2,7 +2,9 @@
     position: sticky;
     top: 0;
     padding: 0.5rem;
-    background-color: inherit;
+    margin: 0 auto;
+    max-width: 1078px;
+    background-color: var(--bg-color);
     z-index: var(--z-index-header);
     height: var(--navbar-height);
     display: flex;
@@ -14,4 +16,9 @@
     display: flex;
     gap:3rem; 
     align-items: center;
+}
+
+.buttons {
+    display: flex;
+    gap: .8rem
 }

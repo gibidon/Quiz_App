@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react'
 import DOMPurify from 'dompurify'
+import { Button } from "../Button"
 
 interface DropdownProps {
   title: string
@@ -12,8 +13,8 @@ export function AnswerDropdown({ title, children }: DropdownProps) {
   const isStringChild = typeof children === 'string'
 
   return (
-    <div>
-      <button onClick={() => setIsOpen(!isOpen)}>{title}</button>
+    <>
+      <Button onClick={() => setIsOpen(!isOpen)}>{title}</Button>
       {isOpen && (
         <>
           {isStringChild ? (
@@ -27,6 +28,6 @@ export function AnswerDropdown({ title, children }: DropdownProps) {
           )}
         </>
       )}
-    </div>
+    </>
   )
 }

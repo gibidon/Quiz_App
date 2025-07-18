@@ -1,23 +1,51 @@
-.card {
-  flex: 1;
-  // display: flex;
-  // flex-direction: column;
-
-  .buttons {}
-}
-
-.img {
+.card, .img {
   flex: 1;
 }
 
 .quiz {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 1rem;
+  gap:2rem;
 }
+
 
 .endQuiz {
   margin-left: auto;
   max-width: 140px;
+}
+
+.quizContent {
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(2,auto);
+  grid-template-areas: 
+    "card img"
+    "buttons img"
+}
+
+.card {
+  grid-area: card;
+}
+
+.img {
+  grid-area: img;
+}
+
+.answerButtons {
+  grid-area: buttons;
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .quizContent {
+    grid-template-columns: 1;
+    grid-template-rows: 3;
+    grid-template-areas: 
+      "card card"
+      "img img"
+      "buttons buttons"
+  }
 }

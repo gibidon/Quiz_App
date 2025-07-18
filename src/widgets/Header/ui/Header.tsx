@@ -19,10 +19,10 @@ export function Header() {
         <AppLink path={`${AppRoutes.QUESTION_LIST}`} title="База вопросов" />
       </div>
 
-      <div className="buttons">
-        <Button title="Change theme" onClick={toggleTheme} />
-        <Button title="Вход" onClick={() => navigate('/login')} />
-        <Button title="Регистрация" onClick={() => navigate('/register')} />
+      <div className={cls.buttons}>
+        <Button title="Change theme" onClick={toggleTheme}>Тема</Button>
+        <Button title="Вход" variant="secondary" onClick={() => navigate('/login')}>Вход</Button>
+        <Button title="Регистрация" onClick={() => navigate('/register')}>Регистрация</Button>
       </div>
     </header>
   )

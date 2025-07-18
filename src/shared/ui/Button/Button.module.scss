@@ -1,3 +1,54 @@
-.button.active {
-    background-color: var(--color-button);
+.button {
+    border-radius: .4rem;
+    border: 1px solid var(--secondary-color);
+    padding: .5rem 1.5rem;
+    display: flex;
+    gap: 0.3rem;
+    // color:inherit;
+    font: var(--font-m-semibold);
+    cursor: pointer;
+
+    &:hover {
+        opacity: .8;
+    }
 }
+
+
+.primary {
+    // background-color: var(--color-button-primary);
+}
+
+.secondary {
+    // background-color: var(--color-button-secondary);
+}
+
+.S {
+    font-size: small
+}
+
+.M {
+    font-size: medium
+}
+
+.L {
+    font-size: large
+}
+
+.active {
+    background-color: var(--color-button-active);
+}
+
+.button-full {
+    width: 100%
+}
+
+.destructive {
+    background-color: var(--color-button-destructive);
+    color: var(--color-red); 
+    border: none;
+
+    &.hover {
+        opacity: .5;
+    }
+}
+
