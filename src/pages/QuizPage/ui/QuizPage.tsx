@@ -14,7 +14,6 @@ export default function QuizPage() {
   const { data, isFetching, isLoading, error } = useGetNewMockQuizQuery(requestParams)
   const answeredQuestionsNumber = useAppSelector(selectAnsweredQuantity)
 
-
   let content
 
   if (isFetching || isLoading) {
