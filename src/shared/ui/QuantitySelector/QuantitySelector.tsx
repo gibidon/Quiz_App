@@ -1,5 +1,4 @@
 import { ChangeEvent } from 'react'
-import cls from './QuantitySelector.module.scss'
 import { Flex } from "../Flex"
 
 interface QuantitySelectorProps {

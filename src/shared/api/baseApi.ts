@@ -41,7 +41,6 @@ const baseQueryWithRefresh: BaseQueryFn = async (args, api, extraOptions) => {
       }
       result = await baseQuery(args, api, extraOptions)
     } else {
-      // console.log('Refresh failed')
     }
   }
 
@@ -52,5 +51,5 @@ export const baseApi = createApi({
   reducerPath: 'api',
   baseQuery: baseQueryWithRefresh,
   endpoints: () => ({}),
-  tagTypes: ['quiz', 'skills', 'specializations'], //TODO move to consts
+  tagTypes: ['quiz', 'skills', 'specializations'],
 })

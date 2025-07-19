@@ -56,7 +56,6 @@ export function AdvantagesBlock() {
               />
             </svg>
             <p>Изучение технологий еще никогда не было таким доступным и эффективным</p>
-            {/* TODO */}
             <button title="Начать обучение" onClick={() => {}} />
           </div>
         </div>

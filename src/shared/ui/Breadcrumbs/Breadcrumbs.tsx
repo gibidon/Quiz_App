@@ -10,7 +10,7 @@ interface BreadcrumbsProps {
   className?: string
 }
 
-export const Breadcrumbs = ({ items, className = '' }: BreadcrumbsProps) => {
+export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   return (
     <nav>
       {items.map((item, index) => {
